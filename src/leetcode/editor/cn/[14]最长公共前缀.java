@@ -58,6 +58,7 @@ class Solution {
                     count = 0;
                     break;
                 }
+                //记录匹配成功了几次
                 count++;
             }
         }
