@@ -45,6 +45,8 @@ class Solution {
         //将任意一个数组映射为Map<值,出现次数>
         //用另一个数组去遍历这个Map，若有相同的Key，则将其出现次数减1.并将当前Key放入List，
         //若已为0则说明这Key出现次数的最小值，已经放入List了。后面再出现不要再放入List
+
+        //若2个是有序的数组，则可以用双指针
         ArrayList<Integer> result = new ArrayList<>();
         Map map1 = new HashMap<Integer,Integer>();
         for(int i = 0;i < nums1.length;i++){
