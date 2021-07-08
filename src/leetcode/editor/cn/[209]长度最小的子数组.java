@@ -51,6 +51,7 @@ package leetcode.editor.cn;
 
 //leetcode submit region begin(Prohibit modification and deletion)
 class Solution {
+    //计算这个数组从i到j的和
     private int count(int i ,int j,int[] nums){
         int l = i;
         int r = j;
@@ -62,10 +63,14 @@ class Solution {
         return c;
     }
     public int minSubArrayLen(int target, int[] nums) {
+        /*
+        滑动窗口，即双指针
+         */
         int i = 0;
         int j = 0;
 
         int result = 0;
+        //当左指针超过右指针，右指针超出数组右边
         while(i <= j && j < nums.length){
             if(i == j && nums[i]>=target){
                 return 1;
