@@ -43,21 +43,23 @@ import java.util.Map;
 class Solution {
     public int[] intersect(int[] nums1, int[] nums2) {
         //将任意一个数组映射为Map<值,出现次数>
-        //用另一个数组去遍历这个Map，若有相同的Key，则将其出现次数减1.并将当前Key放入List，
+        //用另一个数组去遍历匹配这个Map，若有相同的Key，则将其出现次数减1.并将当前Key放入List，
         //若已为0则说明这Key出现次数的最小值，已经放入List了。后面再出现不要再放入List
 
         //若2个是有序的数组，则可以用双指针
         ArrayList<Integer> result = new ArrayList<>();
         Map map1 = new HashMap<Integer,Integer>();
+        //统计次数
         for(int i = 0;i < nums1.length;i++){
             int count = (int) map1.getOrDefault(nums1[i],0) + 1;
 
             map1.put(nums1[i],count);
         }
-
+        //匹配
         for (int i : nums2) {
             if (map1.get(i) != null){
                 Integer curCount = (Integer) map1.get(i);
+                //该数最小出现次数已放入List
                 if (curCount == 0){
                     continue;
                 }else {
