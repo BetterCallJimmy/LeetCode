@@ -66,6 +66,7 @@ class Solution {
         /*
         滑动窗口，即双指针
          */
+        /*
         int i = 0;
         int j = 0;
 
@@ -84,6 +85,24 @@ class Solution {
             }
         }
         return result;
+
+         */
+        //滑动窗口
+        int i = 0;
+        int j = 0;
+        int sum = 0;
+        int result = Integer.MAX_VALUE;
+        for(j = 0;j<nums.length;j++){
+            sum += nums[j];
+            while(sum >= target){
+                result = result>(j-i+1)?(j-i+1):result;
+                //窗口缩小
+                sum -= nums[i];
+                i++;
+            }
+        }
+        return result==Integer.MAX_VALUE?0:result;
+
     }
 }
 //leetcode submit region end(Prohibit modification and deletion)
